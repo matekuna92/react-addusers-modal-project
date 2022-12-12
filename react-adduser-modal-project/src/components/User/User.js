@@ -1,11 +1,11 @@
 import React from 'react';
 
-const User = () => {
+const User = (props) => {
 
     return (
-        <div>
-
-        </div>
+        <li className='user'>
+            
+        </li>
     );
 }
 
