@@ -15,8 +15,7 @@ const UserList = (props) => {
                         name={user.name}
                         age={user.age}
                     >
-                    <div> {user.name} </div>
-                    <div> {user.age} </div>
+                        <div> {user.name} <span>({user.age} years old)</span></div>
                     </User>
             ))}
             </ul>
