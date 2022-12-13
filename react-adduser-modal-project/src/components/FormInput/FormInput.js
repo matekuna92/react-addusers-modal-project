@@ -33,7 +33,7 @@ const FormInput = (props) => {
 
     return (
         <Card className='form-container'>
-            <form onSubmit={formSubmitHandler} className={styles.form}>
+            <form onSubmit={formSubmitHandler}>
                 <label>Username</label>
                 <input type='text' onChange={nameChangeHandler} />
                 <label>Age(Years)</label>

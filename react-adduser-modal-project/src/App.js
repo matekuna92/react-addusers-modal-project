@@ -3,7 +3,7 @@ import './App.css';
 import FormInput from './components/FormInput/FormInput';
 import UserList from './components/UserList/UserList';
 
-function App() {
+const App = (props) => {
 
     let defaultUsers = [
         {
@@ -33,12 +33,20 @@ function App() {
         }
     ];
 
+    const addUserHandler = (enteredData) => {
+        const userData = {
+            ...enteredData
+        };
+
+        
+    }
+
     return (
       <div>
-          <FormInput userList={defaultUsers} />
+          <FormInput userList={defaultUsers} onAddUser={addUserHandler} />
           <UserList userList={defaultUsers} />
       </div>
-    )
+    );
 }
 
 export default App;
