@@ -1,33 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Button from '../Button/Button';
 import styles from './FormInput.module.css';
+import Card from '../Card/Card';
 
-const FormInput = () => {
+const FormInput = (props) => {
+    const [formUserName, setFormUserName] = useState('');
+    const [formUserAge, setFormUserAge] = useState('');
 
-    const formSubmitHandler = (e) => {
-        e.preventDefault();
+    const formSubmitHandler = (event) => {
+        event.preventDefault();
+
+        const userData = {
+            name: formUserName,
+            age: formUserAge
+        };
+
+        console.log(userData);
+        props.onAddUser(userData);
+
     }
 
-    const nameChangeHandler = () => {
-
+    const nameChangeHandler = (event) => {
+        setFormUserName(event.target.value);
+        console.log(formUserName);
     }
 
-    const ageChangeHandler = () => {
-
+    const ageChangeHandler = (event) => {
+        setFormUserAge(event.target.value);
+        console.log(formUserAge);
     }
 
     return (
-        <form onSubmit={formSubmitHandler} className={styles.form}>
-            <div className='form-container'>
+        <Card className='form-container'>
+            <form onSubmit={formSubmitHandler} className={styles.form}>
                 <label>Username</label>
                 <input type='text' onChange={nameChangeHandler} />
                 <label>Age(Years)</label>
                 <input type='text' onChange={ageChangeHandler} />
-
-            </div>
-            <Button type='submit'> Add User </Button>
-        </form>
+                <Button type='submit'> Add User </Button>
+            </form>
+        </Card>
     );
 }
 

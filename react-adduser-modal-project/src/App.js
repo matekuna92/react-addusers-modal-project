@@ -35,7 +35,7 @@ function App() {
 
     return (
       <div>
-          <FormInput />
+          <FormInput userList={defaultUsers} />
           <UserList userList={defaultUsers} />
       </div>
     )
