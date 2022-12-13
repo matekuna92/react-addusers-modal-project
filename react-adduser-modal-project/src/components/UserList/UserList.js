@@ -1,5 +1,7 @@
 import React from 'react';
+
 import User from '../User/User';
+import styles from './UserList.module.css';
 
 const UserList = (props) => {
 
@@ -11,8 +13,8 @@ const UserList = (props) => {
                     name={user.name}
                     age={user.age}
                 >
-                <p> {user.name} </p>
-                <p> {user.age} </p>
+                <div> {user.name} </div>
+                <div> {user.age} </div>
                 </User>
         ))}
         </ul>
