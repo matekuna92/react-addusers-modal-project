@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import FormInput from './components/FormInput/FormInput';
+import UserForm from './components/UserForm/UserForm';
 import UserList from './components/UserList/UserList';
+import NewUser from "./components/User/NewUser";
 
 const App = (props) => {
 
@@ -37,13 +38,13 @@ const App = (props) => {
         const userData = {
             ...enteredData
         };
-
         
+        console.log('Userdata in app: ', userData);
     }
 
     return (
       <div>
-          <FormInput userList={defaultUsers} onAddUser={addUserHandler} />
+          <NewUser onAddUser={addUserHandler} />
           <UserList userList={defaultUsers} />
       </div>
     );

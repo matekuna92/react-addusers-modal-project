@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import Button from '../Button/Button';
-import styles from './FormInput.module.css';
+import styles from './UserForm.module.css';
 import Card from '../Card/Card';
 
-const FormInput = (props) => {
+const UserForm = (props) => {
     const [formUserName, setFormUserName] = useState('');
     const [formUserAge, setFormUserAge] = useState('');
 
@@ -17,7 +17,7 @@ const FormInput = (props) => {
         };
 
         console.log(userData);
-        props.onAddUser(userData);
+        props.onSaveUser(userData);
 
     }
 
@@ -44,4 +44,4 @@ const FormInput = (props) => {
     );
 }
 
-export default FormInput;
+export default UserForm;
