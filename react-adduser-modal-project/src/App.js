@@ -44,7 +44,7 @@ const App = () => {
     return (
       <div>
           <NewUser onAddUser={addUserHandler} />
-          <UserList userList={defaultUsers} />
+          <UserList userList={users} />
       </div>
     );
 }
