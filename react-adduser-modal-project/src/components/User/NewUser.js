@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './NewUser.module.css';
 import UserForm from "../UserForm/UserForm";
 
 const NewUser = (props) => {
-
     const onSaveUserHandler = (enteredUserData) => {
         const userData = {
             ...enteredUserData,

@@ -54,12 +54,12 @@ const UserForm = (props) => {
     }
 
     return (
-        <Card className='form-container'>
+            <Card className={styles['user-form']}>
             <form onSubmit={formSubmitHandler}>
-                <label>Username</label>
-                <input type='text' onChange={nameChangeHandler} />
-                <label>Age(Years)</label>
-                <input type='text' onChange={ageChangeHandler} />
+                <label htmlFor='username'>Username</label>
+                <input id='username' type='text' onChange={nameChangeHandler} />
+                <label htmlFor='age'>Age(Years)</label>
+                <input id='age' type='number' onChange={ageChangeHandler} />
                 <Button type='submit'> Add User </Button>
             </form>
         </Card>
