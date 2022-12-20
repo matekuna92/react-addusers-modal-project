@@ -5,10 +5,6 @@
     padding: 1rem;
 }
 
-.card:not(last-child) {
-    margin: 2rem;
-}
-
 .card label {
     display: block;
 }

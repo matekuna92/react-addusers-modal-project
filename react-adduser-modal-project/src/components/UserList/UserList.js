@@ -7,8 +7,8 @@ import Card from '../Card/Card';
 const UserList = (props) => {
 
     return (
-        <Card className='users'>
-            <ul className='user-list'>
+        <Card className={styles.users}>
+            <ul>
                 {props.userList.map(user => (
                     <User
                         key={user.id}
