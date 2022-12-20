@@ -8,6 +8,7 @@ import Modal from '../Modal/Modal';
 const UserForm = (props) => {
     const [formUserName, setFormUserName] = useState('');
     const [formUserAge, setFormUserAge] = useState('');
+    const [error, setError] = useState();       // undefined as initial, no need to pass anything
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
@@ -20,11 +21,20 @@ const UserForm = (props) => {
         console.log(userData);
 
         if(formUserName.trim().length === 0 || formUserAge.trim().length === 0) {
+            setError({
+                title: 'Invalid input.',
+                message: 'Please enter a valid name and age.'
+            });
             return;
         }
 
         // initialised as string, but age is a number - just a conversion to be safe
         if(+formUserAge < 1) {
+            setError({
+                title: 'Invalid age.',
+                message: 'Age must be a positive number.'
+            });
+
             return;
         }
 
@@ -45,7 +55,7 @@ const UserForm = (props) => {
 
     return (
         <div>
-            <Modal title='Error occured!' message='Error occured!' />
+            {error && <Modal title={error.title} message={error.message} />}
             <Card className={styles['user-form']}>
                 <form onSubmit={formSubmitHandler}>
                     <label htmlFor='username'>Username</label>
