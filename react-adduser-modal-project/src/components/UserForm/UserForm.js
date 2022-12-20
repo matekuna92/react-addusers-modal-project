@@ -53,9 +53,14 @@ const UserForm = (props) => {
         setFormUserAge(event.target.value);
     }
 
+    // change Error object from object to null, so modal wont be rendered, when backdrop or Okay button is clicked
+    const errorHandler = () => {
+        setError(null);
+    }
+
     return (
         <div>
-            {error && <Modal title={error.title} message={error.message} />}
+            {error && <Modal title={error.title} message={error.message} onHandleError={errorHandler} />}
             <Card className={styles['user-form']}>
                 <form onSubmit={formSubmitHandler}>
                     <label htmlFor='username'>Username</label>
