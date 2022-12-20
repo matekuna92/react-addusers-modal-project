@@ -1,0 +1,8 @@
+.user {
+    padding: 0.2rem 0.5rem;
+    border: 1px solid lightgrey;
+}
+
+.user:not(:last-child) {
+    margin-bottom: 0.5rem;
+}

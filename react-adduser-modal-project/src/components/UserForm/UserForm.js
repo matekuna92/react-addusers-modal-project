@@ -7,6 +7,7 @@ import Card from '../Card/Card';
 const UserForm = (props) => {
     const [formUserName, setFormUserName] = useState('');
     const [formUserAge, setFormUserAge] = useState('');
+    const [isEmptyInput, setIsEmptyInput] = useState(true);
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
@@ -17,18 +18,39 @@ const UserForm = (props) => {
         };
 
         console.log(userData);
+
+        if(formUserName.trim().length > 0 && formUserAge.trim().length > 0) {
+            setIsEmptyInput(false);
+        }
+        else {
+            setIsEmptyInput(true);
+        }
+        console.log('isEmptyInput', isEmptyInput);
+
         props.onSaveUser(userData);
 
     }
 
     const nameChangeHandler = (event) => {
         setFormUserName(event.target.value);
-        console.log(formUserName);
+
+        if(event.target.value.length > 0) {
+            setIsEmptyInput(false);
+        }
+        else {
+            setIsEmptyInput(true);
+        }
     }
 
     const ageChangeHandler = (event) => {
         setFormUserAge(event.target.value);
-        console.log(formUserAge);
+
+        if(event.target.value.length > 0) {
+            setIsEmptyInput(false);
+        }
+        else {
+            setIsEmptyInput(true);
+        }
     }
 
     return (
