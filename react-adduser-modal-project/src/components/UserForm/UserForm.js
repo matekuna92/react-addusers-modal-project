@@ -19,47 +19,37 @@ const UserForm = (props) => {
 
         console.log(userData);
 
-        if(formUserName.trim().length > 0 && formUserAge.trim().length > 0) {
-            setIsEmptyInput(false);
+        if(formUserName.trim().length === 0 || formUserAge.trim().length === 0) {
+            return;
         }
-        else {
-            setIsEmptyInput(true);
+
+        // initialised as string, but age is a number - just a conversion to be safe
+        if(+formUserAge < 1) {
+            return;
         }
-        console.log('isEmptyInput', isEmptyInput);
+
+        setFormUserName('');
+        setFormUserAge('');
+        console.log(formUserName, formUserAge);
 
         props.onSaveUser(userData);
-
     }
 
     const nameChangeHandler = (event) => {
         setFormUserName(event.target.value);
-
-        if(event.target.value.length > 0) {
-            setIsEmptyInput(false);
-        }
-        else {
-            setIsEmptyInput(true);
-        }
     }
 
     const ageChangeHandler = (event) => {
         setFormUserAge(event.target.value);
-
-        if(event.target.value.length > 0) {
-            setIsEmptyInput(false);
-        }
-        else {
-            setIsEmptyInput(true);
-        }
     }
 
     return (
             <Card className={styles['user-form']}>
             <form onSubmit={formSubmitHandler}>
                 <label htmlFor='username'>Username</label>
-                <input id='username' type='text' onChange={nameChangeHandler} />
+                <input id='username' type='text' value={formUserName} onChange={nameChangeHandler} />
                 <label htmlFor='age'>Age(Years)</label>
-                <input id='age' type='number' onChange={ageChangeHandler} />
+                <input id='age' type='number' value={formUserAge} onChange={ageChangeHandler} />
                 <Button type='submit'> Add User </Button>
             </form>
         </Card>
