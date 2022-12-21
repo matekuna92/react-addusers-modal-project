@@ -41,11 +41,12 @@ const App = () => {
         });
     }
 
+    // <> === <React.Fragment> depends if project setup supports the first syntax or not
     return (
-      <div>
+      <>
           <NewUser onAddUser={addUserHandler} />
           <UserList userList={users} />
-      </div>
+      </>
     );
 }
 
