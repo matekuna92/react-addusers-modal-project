@@ -46,6 +46,8 @@ const UserForm = (props) => {
         }
 
         props.onSaveUser(userData);
+        nameInputRef.current.value = '';
+        ageInputRef.current.value = '';
     }
 
     // change Error object from object to null, so modal wont be rendered, when backdrop or Okay button is clicked
